@@ -7,7 +7,25 @@
   <body>
     <p>SPA cookie test</p>
     <script>
-      console.log("Executing script...");
+      (async function () {
+        axios.defaults.withCredentials = true;
+
+        const MPLATFORM_URL = "https://mplatform.bertlock.net";
+        const getWebCookieFromMPlatform = () => {
+          return axios.get(`${MPLATFORM_URL}/webcookie`);
+        };
+
+        const getDebitCards = () => {
+          return axios.get(`${MPLATFORM_URL}/debitcards`, {
+            withCredentials: true,
+          });
+        };
+
+        const webcookie = await getWebCookieFromMPlatform();
+        console.log("webcookie", webcookie);
+        const debitcards = await getDebitCards();
+        console.log("debitcards", debitcards);
+      })();
     </script>
   </body>
 </html>
