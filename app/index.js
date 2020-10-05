@@ -9,5 +9,8 @@ app.use(
   })
 );
 app.use(express.static("public"));
+app.get("*", function (req, res) {
+  res.redirect("./index.html");
+});
 
 module.exports = app;
