@@ -13,7 +13,7 @@ app.get("*", function (req, res) {
   res.headers = {
     ...res.headers,
     ...{
-      "X-Frame-Options": "Allow",
+      "X-Frame-Options": "Deny",
     },
   };
   res.redirect("./index.html");
