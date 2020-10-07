@@ -16,7 +16,7 @@ app.get("*", function (req, res) {
       "X-Frame-Options": "Deny",
     },
   };
-  res.redirect("./index.html");
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 module.exports = app;
