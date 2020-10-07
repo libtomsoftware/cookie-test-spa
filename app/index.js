@@ -10,6 +10,12 @@ app.use(
 );
 app.use(express.static("public"));
 app.get("*", function (req, res) {
+  res.headers = {
+    ...res.headers,
+    ...{
+      "X-Frame-Options": "Allow",
+    },
+  };
   res.redirect("./index.html");
 });
 
