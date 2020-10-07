@@ -9,7 +9,6 @@ app.use(
     extended: false,
   })
 );
-//app.use(express.static("public"));
 app.get("*", function (req, res) {
   res.headers = {
     ...res.headers,
@@ -17,6 +16,7 @@ app.get("*", function (req, res) {
       "X-Frame-Options": "Deny",
     },
   };
+  console.log("res.headers", res.headers);
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
